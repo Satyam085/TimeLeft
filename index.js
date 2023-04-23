@@ -4,14 +4,13 @@ minE = document.querySelector('.minutes'),
 secE = document.querySelector('.seconds');
 
 
-const targetDate = "04/24/2023";
+
+//const targetDate = "04/24/2023";
 //document.getElementById('targetDate');
-const btn = document.querySelector('button');
 
+const timerFunction = (targetDate, currentDate) => {
 
-const timerFunction = (targetDate) => {
-
-    const currentDate = new Date().getTime();
+    
     const target = new Date(targetDate).getTime();
 
     if (currentDate > target) return;
@@ -46,8 +45,11 @@ const TimeRem = (remainingTime) => {
 
 const updateTIme = () => {
     
-    setInterval(() => {
-    const ans_arr = timerFunction(targetDate);
+    
+    const targetDate = prompt('Enter Target Date in mm/dd/yyyy:',);
+
+    setInterval(() => { const currentDate = new Date().getTime();
+    const ans_arr = timerFunction(targetDate, currentDate);
 
     daysE.innerText = ans_arr[0];
     hoursE.innerText = ans_arr[1];
